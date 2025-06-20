@@ -23,15 +23,9 @@ jobs:
         run: npm install
 
       - name: Build
-        run: BUILD_TARGET=app npm run build -- --base=/fhirpath-editor
-
-      - name: Prepare for deployment
-        run: |
-          find . -mindepth 1 -maxdepth 1 ! -name 'dist' -exec rm -rf {} \;
-          mv dist/* .
-          rm -rf dist
+        run: BUILD_TARGET=app npm run build
 
       - name: Publish
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .
+          folder: dist
