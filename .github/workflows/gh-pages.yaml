@@ -1,0 +1,37 @@
+name: Publish to GitHub Pages
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: BUILD_TARGET=app npm run build -- --base=/fhirpath-editor
+
+      - name: Prepare for deployment
+        run: |
+          find . -mindepth 1 -maxdepth 1 ! -name 'dist' -exec rm -rf {} \;
+          mv dist/* .
+          rm -rf dist
+
+      - name: Publish
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .

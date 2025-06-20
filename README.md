@@ -4,7 +4,7 @@ A React component library for editing and evaluating FHIRPath expressions with r
 
 ## Online Demo
 
-Try the interactive demo at [https://aidbox.github.io/examples/fhirpath-editor/](https://aidbox.github.io/examples/fhirpath-editor/)
+Try the interactive demo at [https://healthsamurai.github.io/fhirpath-editor/](https://healthsamurai.github.io/fhirpath-editor/)
 
 ## Installation
 
