@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: BUILD_TARGET=app npm run build
+        run: BUILD_TARGET=app npm run build -- --base=/fhirpath-editor
 
       - name: Publish
         uses: JamesIves/github-pages-deploy-action@v4
