@@ -2,11 +2,12 @@
   "name": "fhirpath-editor",
   "version": "0.10.1",
   "type": "module",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Aidbox/examples/tree/main/fhirpath-editor"
+    "url": "https://github.com/HealthSamurai/fhirpath-editor"
   },
-  "homepage": "https://aidbox.github.io/examples/fhirpath-editor/",
+  "homepage": "https://healthsamurai.github.io/fhirpath-editor/",
   "files": [
     "dist"
   ],
