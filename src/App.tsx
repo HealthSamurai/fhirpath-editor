@@ -2,6 +2,7 @@ import { Editor, FhirSchema } from "../lib/index";
 
 import Code from "./components/Code";
 import ContextEditor from "./components/ContextEditor";
+import DebugToggler from "./components/DebugToggler";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import q from "./vital-signs.json";
 import qr from "./vital-signs-response.json";
@@ -87,8 +88,10 @@ export function App() {
               <div className="bg-gray-200 h-[1px] w-full" />
             </PanelResizeHandle>
             <Panel className="flex flex-col">
-              <h2 className="font-medium py-2 px-2 text-sm text-gray-500">
-                External Variables
+              <h2 className="font-medium py-2 px-2 text-sm text-gray-500 flex justify-between">
+                <span>External Variables</span>
+
+                <DebugToggler/>
               </h2>
               <ContextEditor
                 context={data}

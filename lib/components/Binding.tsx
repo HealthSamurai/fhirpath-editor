@@ -36,9 +36,9 @@ const Binding = memo(function Binding({
     setTokenRef,
     focusToken,
     getBindingType,
-    getDependantBindingIds,
-    getDependingBindings,
-    getBindableBindings,
+    // getDependantBindingIds,
+    // getDependingBindings,
+    // getBindableBindings,
     debug,
     setBindingRef,
   } = useProgramContext((state) => {
@@ -202,21 +202,21 @@ const Binding = memo(function Binding({
 
       {debug && tokenTypes.length > 0 && (
         <div className={style.binding.vbox}>
-          <div className={style.binding.debug}>
-            dependants: {getDependantBindingIds(bindingId).join(", ")}
-          </div>
-          <div className={style.binding.debug}>
-            dependencies:{" "}
-            {getDependingBindings(bindingId)
-              .map((b) => b.name)
-              .join(", ")}
-          </div>
-          <div className={style.binding.debug}>
-            bindables:{" "}
-            {getBindableBindings(bindingId)
-              .map((b) => b.name)
-              .join(", ")}
-          </div>
+          {/*<div className={style.binding.debug}>*/}
+          {/*  dependants: {getDependantBindingIds(bindingId).join(", ")}*/}
+          {/*</div>*/}
+          {/*<div className={style.binding.debug}>*/}
+          {/*  dependencies:{" "}*/}
+          {/*  {getDependingBindings(bindingId)*/}
+          {/*    .map((b) => b.name)*/}
+          {/*    .join(", ")}*/}
+          {/*</div>*/}
+          {/*<div className={style.binding.debug}>*/}
+          {/*  bindables:{" "}*/}
+          {/*  {getBindableBindings(bindingId)*/}
+          {/*    .map((b) => b.name)*/}
+          {/*    .join(", ")}*/}
+          {/*</div>*/}
           <span className={style.binding.debug}>{stringifyType(type)}</span>
         </div>
       )}
