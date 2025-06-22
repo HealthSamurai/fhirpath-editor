@@ -128,6 +128,7 @@ Note: Do not provide both `value` and `defaultValue` at the same time. If both a
 - Reduces development time for complex FHIRPath queries
 
 ## Todo
-- [ ] Support $total special variable
-- [ ] Support type evaluation of `aggregate` call
+- [x] Support $total special variable
+- [x] Support type evaluation of `aggregate` call
 - [ ] Support dynamic index access
+- [ ] Support unit token

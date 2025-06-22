@@ -18,20 +18,16 @@ export function App() {
   } = useJsonFetch<FhirSchema[]>("schema.json");
 
   const [value, setValue] = useLocalStorageState(
-    "fhirpath-editor/value/1",
+    "fhirpath-editor/value",
     "3 * (1 + 2) / 4",
   );
 
-  const [data, setData] = useLocalStorageState(
-    "fhirpath-editor/data/1",
-    qr.item[0],
-  );
+  const [data, setData] = useLocalStorageState("fhirpath-editor/data", qr);
 
   const [variable, setVariables] = useLocalStorageState<Record<string, any>>(
-    "fhirpath-editor/variables/1",
+    "fhirpath-editor/variables",
     {
       questionnaire: q,
-      resource: qr,
     },
   );
 
@@ -92,7 +88,7 @@ export function App() {
             </PanelResizeHandle>
             <Panel className="flex flex-col">
               <h2 className="font-medium py-2 px-2 text-sm text-gray-500">
-                External Bindings
+                External Variables
               </h2>
               <ContextEditor
                 context={data}
