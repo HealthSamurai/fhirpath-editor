@@ -65,13 +65,12 @@ type EvalViewerProps = {
 const ValueViewer = ({ bindingId }: EvalViewerProps) => {
   const style = useStyle();
   const text = useText();
-  const { name, getBindingValue, portalRoot } = useProgramContext((state) => ({
+  const { name, value, portalRoot } = useProgramContext((state) => ({
     name: bindingId && state.getBindingName(bindingId),
-    getBindingValue: state.getBindingValue,
+    value: state.getBindingValue(bindingId),
     portalRoot: state.getPortalRoot(),
   }));
 
-  const value = getBindingValue(bindingId);
   const [isOpen, setIsOpen] = useState(false);
   const arrowRef = useRef(null);
 
