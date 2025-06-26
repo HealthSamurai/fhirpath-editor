@@ -21,6 +21,7 @@ export default function ContextEditor({
   const [editingBindingName, setEditingBindingName] = useState<string | null>(
     null,
   );
+  const [draftName, setDraftName] = useState("");
 
   const addNewBinding = () => {
     const name = `external${Object.keys(externalBindings).length + 1}`;
@@ -46,11 +47,27 @@ export default function ContextEditor({
   );
 
   const updateBindingName = (name: string, newName: string) => {
-    const { [name]: value, ...rest } = externalBindings;
-    setExternalBindings({
-      ...rest,
-      [newName]: value,
-    });
+    if (name === newName || !newName) {
+      return;
+    }
+
+    const newBindings = Object.keys(externalBindings).reduce(
+      (acc, currentName) => {
+        if (currentName === name) {
+          acc[newName] = externalBindings[name];
+        } else {
+          acc[currentName] = externalBindings[currentName];
+        }
+        return acc;
+      },
+      {} as Record<string, any>,
+    );
+
+    setExternalBindings(newBindings);
+
+    if (activeBindingName === name) {
+      setActiveBindingName(newName);
+    }
   };
 
   const deleteBinding = (name: string) => {
@@ -79,6 +96,14 @@ export default function ContextEditor({
     [setContext, activeBindingName, updateBindingValue],
   );
 
+  const handleRename = () => {
+    if (editingBindingName) {
+      updateBindingName(editingBindingName, draftName);
+    }
+    setEditingBindingName(null);
+    setDraftName("");
+  };
+
   return (
     <div className="flex flex-col overflow-hidden flex-1">
       <div className="flex border-b border-gray-200">
@@ -102,21 +127,21 @@ export default function ContextEditor({
             {editingBindingName === name ? (
               <input
                 type="text"
-                value={name}
-                onChange={(e) => updateBindingName(name, e.target.value)}
-                onBlur={() => setEditingBindingName(null)}
+                value={draftName}
+                onChange={(e) => setDraftName(e.target.value)}
+                onBlur={handleRename}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    handleRename();
+                  }
+                  if (e.key === "Escape") {
                     setEditingBindingName(null);
                   }
                 }}
                 ref={(ref) => {
-                  if (ref) {
-                    // if not focused, focus and select the input
-                    if (!ref.matches(":focus")) {
-                      ref.focus();
-                      ref.setSelectionRange(0, ref.value.length);
-                    }
+                  if (ref && !ref.matches(":focus")) {
+                    ref.focus();
+                    ref.select();
                   }
                 }}
                 className="pl-2 py-1.5 focus:outline-none field-sizing-content"
@@ -124,7 +149,10 @@ export default function ContextEditor({
             ) : (
               <span
                 className="truncate max-w-52 py-1.5 pl-2"
-                onDoubleClick={() => setEditingBindingName(name)}
+                onDoubleClick={() => {
+                  setEditingBindingName(name);
+                  setDraftName(name);
+                }}
               >
                 {name}
               </span>
