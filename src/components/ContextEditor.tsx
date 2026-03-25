@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
-import { Plus, X } from "@phosphor-icons/react";
+import { PlusIcon } from "@phosphor-icons/react/Plus";
+import { XIcon } from "@phosphor-icons/react/X";
 import { JsonEditor } from "./JsonEditor";
 
 interface ContextEditorProps {
@@ -167,7 +168,7 @@ export default function ContextEditor({
               className="text-gray-400 hover:text-gray-700 cursor-pointer px-1 py-1"
               title="Delete binding"
             >
-              <X size={14} weight="light" />
+              <XIcon size={14} weight="light" />
             </button>
           </div>
         ))}
@@ -176,7 +177,7 @@ export default function ContextEditor({
           onClick={addNewBinding}
           title="Add new binding"
         >
-          <Plus size={14} />
+          <PlusIcon size={14} />
         </button>
       </div>
 

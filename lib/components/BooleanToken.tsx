@@ -1,6 +1,7 @@
 import { forwardRef, Ref } from "react";
 import { useProgramContext } from "../utils/store";
-import { CheckSquare, Square } from "@phosphor-icons/react";
+import { CheckSquareIcon } from "@phosphor-icons/react/CheckSquare";
+import { SquareIcon } from "@phosphor-icons/react/Square";
 import { IBooleanToken, TokenComponentProps } from "../types/internal";
 import { useStyle } from "../style";
 
@@ -28,7 +29,7 @@ const BooleanToken = forwardRef<HTMLElement, TokenComponentProps>(
             })
           }
         />
-        {isChecked ? <CheckSquare size={18} /> : <Square size={18} />}
+        {isChecked ? <CheckSquareIcon size={18} /> : <SquareIcon size={18} />}
         {token.value}
       </label>
     );

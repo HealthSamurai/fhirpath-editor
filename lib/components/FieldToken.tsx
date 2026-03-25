@@ -1,7 +1,7 @@
 import { forwardRef, Ref } from "react";
 import { useProgramContext } from "../utils/store";
 import { mergeRefs } from "../utils/react";
-import { Shapes } from "@phosphor-icons/react";
+import { ShapesIcon } from "@phosphor-icons/react/Shapes";
 
 import Dropdown from "./Dropdown";
 import { IFieldToken, TokenComponentProps } from "../types/internal";
@@ -45,7 +45,7 @@ const FieldToken = forwardRef<HTMLElement, TokenComponentProps>(
         renderItem={(token) => (
           <>
             <span className={style.dropdown.icon}>
-              <Shapes size={14} />
+              <ShapesIcon size={14} />
             </span>
             <span className={style.dropdown.primary}>{token.value}</span>
             {debug && (

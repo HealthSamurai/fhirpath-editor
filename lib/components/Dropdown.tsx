@@ -23,7 +23,8 @@ import {
   useInteractions,
   useListNavigation,
 } from "@floating-ui/react";
-import { CaretDown, Empty } from "@phosphor-icons/react";
+import { CaretDownIcon } from "@phosphor-icons/react/CaretDown";
+import { EmptyIcon } from "@phosphor-icons/react/Empty";
 import { useStyle } from "../style";
 import { useText } from "../text";
 import { useProgramContext } from "../utils/store.ts";
@@ -243,7 +244,7 @@ function Dropdown<T>({
                             {expandedGroups.has(group)
                               ? text.dropdown.group.showLess
                               : text.dropdown.group.showMore}
-                            <CaretDown
+                            <CaretDownIcon
                               size={16}
                               style={{
                                 transform: expandedGroups.has(group)
@@ -285,7 +286,7 @@ function Dropdown<T>({
 
             {!createdItem && filteredItems.length === 0 && (
               <div className={style.dropdown.empty}>
-                <Empty size={16} /> {text.dropdown.empty.nothingFound}
+                <EmptyIcon size={16} /> {text.dropdown.empty.nothingFound}
               </div>
             )}
           </div>

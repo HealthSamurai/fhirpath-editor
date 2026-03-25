@@ -12,7 +12,6 @@ import {
 } from "../utils/type";
 import { useProgramContext } from "../utils/store";
 import { colors, distinct } from "../utils/misc";
-import { Tag } from "@phosphor-icons/react";
 import Dropdown from "./Dropdown";
 import { mergeRefs } from "../utils/react";
 import {
@@ -22,6 +21,7 @@ import {
   Type,
 } from "../types/internal";
 import { unparseTypeToken } from "../utils/fhirpath";
+import { TagIcon } from "@phosphor-icons/react/Tag";
 import { useStyle } from "../style";
 import { useText } from "../text";
 
@@ -106,7 +106,7 @@ const TypeToken = forwardRef<HTMLElement, TokenComponentProps>(
         renderItem={(type) => (
           <>
             <span className={style.dropdown.icon}>
-              <Tag size={14} />
+              <TagIcon size={14} />
             </span>
             <span className={style.dropdown.primary}>
               {unparseTypeToken({ kind: TokenKind.type, value: type })}

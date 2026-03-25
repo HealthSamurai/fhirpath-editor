@@ -1,9 +1,7 @@
-import {
-  Copy,
-  DotsThreeVertical,
-  PuzzlePiece,
-  Trash,
-} from "@phosphor-icons/react";
+import { CopyIcon } from "@phosphor-icons/react/Copy";
+import { DotsThreeVerticalIcon } from "@phosphor-icons/react/DotsThreeVertical";
+import { PuzzlePieceIcon } from "@phosphor-icons/react/PuzzlePiece";
+import { TrashIcon } from "@phosphor-icons/react/Trash";
 import { memo, ReactNode } from "react";
 import { useProgramContext } from "../utils/store";
 import Dropdown from "./Dropdown";
@@ -27,18 +25,18 @@ const BindingMenu = memo(function BindingMenu({ bindingId }: BindingMenuProps) {
 
   const items = [
     bindingId && {
-      icon: <Trash size={16} className={style.binding.menu.icon} />,
+      icon: <TrashIcon size={16} className={style.binding.menu.icon} />,
       text: text.binding.menu.delete,
       onClick: () => deleteBinding(bindingId),
     },
     bindingId && {
-      icon: <Copy size={16} className={style.binding.menu.icon} />,
+      icon: <CopyIcon size={16} className={style.binding.menu.icon} />,
       text: text.binding.menu.duplicate,
       onClick: () => duplicateBinding(bindingId),
     },
     !bindingId &&
       !empty && {
-        icon: <PuzzlePiece size={16} className={style.binding.menu.icon} />,
+        icon: <PuzzlePieceIcon size={16} className={style.binding.menu.icon} />,
         text: text.binding.menu.asVariable,
         onClick: () => nameExpression(),
       },
@@ -56,7 +54,7 @@ const BindingMenu = memo(function BindingMenu({ bindingId }: BindingMenuProps) {
           ref={ref}
           {...mergeProps({ className: style.binding.menu.button })}
         >
-          <DotsThreeVertical size={16} weight="bold" />
+          <DotsThreeVerticalIcon size={16} weight="bold" />
         </button>
       )}
       renderItem={({ icon, text }) => (

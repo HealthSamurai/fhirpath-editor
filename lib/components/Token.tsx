@@ -16,7 +16,7 @@ import AnswerToken from "./AnswerToken";
 import { TokenComponentProps, TokenKind, TypeName } from "../types/internal";
 import { useStyle } from "../style";
 import clx from "classnames";
-import { X } from "@phosphor-icons/react";
+import { XIcon } from "@phosphor-icons/react/X";
 import { useProgramContext } from "../utils/store.ts";
 import NullToken from "./NullToken.tsx";
 import Tooltip from "./Tooltip.tsx";
@@ -118,7 +118,7 @@ const Token = memo(
                   deleteToken(props.bindingId, props.tokenIndex);
                 }}
               >
-                <X size={16} weight="bold" />
+                <XIcon size={16} weight="bold" />
               </button>
             )}
           </div>

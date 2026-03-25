@@ -9,25 +9,23 @@ import {
   useInteractions,
   useListNavigation,
 } from "@floating-ui/react";
-import {
-  BracketsSquare,
-  Calendar,
-  CaretDown,
-  Clock,
-  Empty,
-  Flag,
-  Function,
-  Hash,
-  Lightning,
-  Plus,
-  PuzzlePiece,
-  Quotes,
-  Scales,
-  Shapes,
-  Tag,
-  Textbox,
-  Timer,
-} from "@phosphor-icons/react";
+import { BracketsSquareIcon } from "@phosphor-icons/react/BracketsSquare";
+import { CalendarIcon } from "@phosphor-icons/react/Calendar";
+import { CaretDownIcon } from "@phosphor-icons/react/CaretDown";
+import { ClockIcon } from "@phosphor-icons/react/Clock";
+import { EmptyIcon } from "@phosphor-icons/react/Empty";
+import { FlagIcon } from "@phosphor-icons/react/Flag";
+import { FunctionIcon } from "@phosphor-icons/react/Function";
+import { HashIcon } from "@phosphor-icons/react/Hash";
+import { LightningIcon } from "@phosphor-icons/react/Lightning";
+import { PlusIcon } from "@phosphor-icons/react/Plus";
+import { PuzzlePieceIcon } from "@phosphor-icons/react/PuzzlePiece";
+import { QuotesIcon } from "@phosphor-icons/react/Quotes";
+import { ScalesIcon } from "@phosphor-icons/react/Scales";
+import { ShapesIcon } from "@phosphor-icons/react/Shapes";
+import { TagIcon } from "@phosphor-icons/react/Tag";
+import { TextboxIcon } from "@phosphor-icons/react/Textbox";
+import { TimerIcon } from "@phosphor-icons/react/Timer";
 import {
   CSSProperties,
   forwardRef,
@@ -374,7 +372,7 @@ const Cursor = forwardRef<CursorRef, CursorProps>(function Cursor(
               !empty && style.binding.cursor.faded,
             )}
           >
-            <Plus size={12} />
+            <PlusIcon size={12} />
           </div>
           <span className={style.binding.cursor.placeholder}>
             {placeholder}
@@ -441,7 +439,7 @@ const Cursor = forwardRef<CursorRef, CursorProps>(function Cursor(
                           {expandedGroups.has(group)
                             ? text.dropdown.group.showLess
                             : text.dropdown.group.showMore}
-                          <CaretDown
+                          <CaretDownIcon
                             size={16}
                             style={{
                               transform: expandedGroups.has(group)
@@ -490,33 +488,33 @@ const Cursor = forwardRef<CursorRef, CursorProps>(function Cursor(
                         >
                           <span className={style.dropdown.icon}>
                             {token.kind === TokenKind.null ? (
-                              <Empty size={14} />
+                              <EmptyIcon size={14} />
                             ) : token.kind === TokenKind.string ? (
-                              <Quotes size={14} />
+                              <QuotesIcon size={14} />
                             ) : token.kind === TokenKind.number ? (
-                              <Hash size={14} />
+                              <HashIcon size={14} />
                             ) : token.kind === TokenKind.variable ? (
-                              <PuzzlePiece size={14} />
+                              <PuzzlePieceIcon size={14} />
                             ) : token.kind === TokenKind.boolean ? (
-                              <Flag size={14} />
+                              <FlagIcon size={14} />
                             ) : token.kind === TokenKind.date ? (
-                              <Calendar size={14} />
+                              <CalendarIcon size={14} />
                             ) : token.kind === TokenKind.datetime ? (
-                              <Clock size={14} />
+                              <ClockIcon size={14} />
                             ) : token.kind === TokenKind.time ? (
-                              <Timer size={14} />
+                              <TimerIcon size={14} />
                             ) : token.kind === TokenKind.quantity ? (
-                              <Scales size={14} />
+                              <ScalesIcon size={14} />
                             ) : token.kind === TokenKind.type ? (
-                              <Tag size={14} />
+                              <TagIcon size={14} />
                             ) : token.kind === TokenKind.index ? (
-                              <BracketsSquare size={14} />
+                              <BracketsSquareIcon size={14} />
                             ) : token.kind === TokenKind.field ? (
-                              <Shapes size={14} />
+                              <ShapesIcon size={14} />
                             ) : token.kind === TokenKind.function ? (
-                              <Function size={14} />
+                              <FunctionIcon size={14} />
                             ) : token.kind === TokenKind.answer ? (
-                              <Textbox size={14} />
+                              <TextboxIcon size={14} />
                             ) : token.kind === TokenKind.operator ? (
                               <OperatorIcon name={token.value} size={14} />
                             ) : null}
@@ -525,7 +523,7 @@ const Cursor = forwardRef<CursorRef, CursorProps>(function Cursor(
                             {getText(token, items, text)}
                           </span>
                           {token.shortcut ? (
-                            <Lightning
+                            <LightningIcon
                               size={14}
                               weight="fill"
                               className={style.binding.cursor.shortcut}
@@ -543,7 +541,7 @@ const Cursor = forwardRef<CursorRef, CursorProps>(function Cursor(
 
             {nextTokens.length > 0 && filteredTokens.length === 0 && (
               <div className={style.dropdown.empty}>
-                <Empty size={16} /> {text.dropdown.empty.nothingFound}
+                <EmptyIcon size={16} /> {text.dropdown.empty.nothingFound}
               </div>
             )}
           </div>

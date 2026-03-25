@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useRef, useState, memo } from "react";
 import Token from "./Token";
 import Cursor, { CursorRef } from "./Cursor";
 import { useCommitableState, useDoubleInvoke } from "../utils/react";
-import { Equals } from "@phosphor-icons/react";
+import { EqualsIcon } from "@phosphor-icons/react/Equals";
 import { useProgramContext } from "../utils/store";
 import { delay } from "../utils/misc";
 import ValueViewer from "./ValueViewer.tsx";
@@ -122,7 +122,7 @@ const Binding = memo(function Binding({
         />
       ) : null}
       {(name || explicitName) && (
-        <Equals size={12} weight="bold" className={style.binding.equals} />
+        <EqualsIcon size={12} weight="bold" className={style.binding.equals} />
       )}
       <div
         className={clx(

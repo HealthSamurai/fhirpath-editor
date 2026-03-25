@@ -1,7 +1,7 @@
 import { memo, ReactNode, useCallback } from "react";
 import Binding from "./Binding";
 import BindingMenu from "./BindingMenu";
-import { Plus } from "@phosphor-icons/react";
+import { PlusIcon } from "@phosphor-icons/react/Plus";
 import { useProgramContext } from "../utils/store";
 import { stringifyType } from "../utils/type";
 import clx from "classnames";
@@ -57,7 +57,7 @@ const Program = memo(function Program({
 
       <div className={style.program.define}>
         <button onClick={onClick}>
-          <Plus size={14} /> {text.program.define}
+          <PlusIcon size={14} /> {text.program.define}
         </button>
       </div>
 

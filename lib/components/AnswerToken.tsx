@@ -1,6 +1,6 @@
 import { forwardRef, Ref } from "react";
 import { useProgramContext } from "../utils/store";
-import { Textbox } from "@phosphor-icons/react";
+import { TextboxIcon } from "@phosphor-icons/react/Textbox";
 import Dropdown from "./Dropdown";
 import { mergeRefs } from "../utils/react";
 import { IAnswerToken } from "../types/internal";
@@ -52,14 +52,14 @@ const AnswerToken = forwardRef<HTMLElement, AnswerTokenProps>(
             ref={mergeRefs(forwardedRef as Ref<HTMLButtonElement>, ref)}
             {...mergeProps({ className: style.token.answer.button })}
           >
-            <Textbox />
+            <TextboxIcon />
             <span>{questionnaireItems[token.value]?.text || token.value}</span>
           </button>
         )}
         renderItem={(token) => (
           <>
             <span className={style.dropdown.icon}>
-              <Textbox size={14} />
+              <TextboxIcon size={14} />
             </span>
             <span className={style.dropdown.primary}>
               {questionnaireItems[token.value]?.text || token.value}{" "}

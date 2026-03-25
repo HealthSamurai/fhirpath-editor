@@ -1,6 +1,8 @@
 import { ReactNode, useRef, useState } from "react";
 import { JsonView } from "react-json-view-lite";
-import { ArrowRight, Empty, Warning } from "@phosphor-icons/react";
+import { ArrowRightIcon } from "@phosphor-icons/react/ArrowRight";
+import { EmptyIcon } from "@phosphor-icons/react/Empty";
+import { WarningIcon } from "@phosphor-icons/react/Warning";
 import { useProgramContext } from "../utils/store";
 import {
   arrow,
@@ -29,13 +31,13 @@ function format(
   if (value.error) {
     return (
       <span className={style.binding.value.failure}>
-        <Warning /> {text.value.error.message}
+        <WarningIcon /> {text.value.error.message}
       </span>
     );
   } else if (value.value == null) {
     return (
       <span className={style.binding.value.empty}>
-        <Empty /> {text.value.error.empty}
+        <EmptyIcon /> {text.value.error.empty}
       </span>
     );
   } else if (Array.isArray(value.value)) {
@@ -46,7 +48,7 @@ function format(
         .join(", ")}${value.value.length > 3 ? ", ..." : ""}`
     ) : (
       <span className={style.binding.value.empty}>
-        <Empty /> {text.value.error.empty}
+        <EmptyIcon /> {text.value.error.empty}
       </span>
     );
   }
@@ -123,7 +125,7 @@ const ValueViewer = ({ bindingId }: EvalViewerProps) => {
         {...getReferenceProps()}
         className={style.binding.value.button}
       >
-        <ArrowRight size={12} className={style.binding.value.equals} />
+        <ArrowRightIcon size={12} className={style.binding.value.equals} />
         {format(value, style, text)}
       </button>
 

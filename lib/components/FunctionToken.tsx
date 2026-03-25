@@ -18,7 +18,6 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { category, functionMetadata } from "../utils/function";
-import { CaretDown, Empty, Function } from "@phosphor-icons/react";
 import { useProgramContext } from "../utils/store";
 import {
   FunctionMetadata,
@@ -26,6 +25,9 @@ import {
   TokenComponentProps,
 } from "../types/internal";
 import { assertDefined, colors, scrollIntoView, truncate } from "../utils/misc";
+import { CaretDownIcon } from "@phosphor-icons/react/CaretDown";
+import { EmptyIcon } from "@phosphor-icons/react/Empty";
+import { FunctionIcon } from "@phosphor-icons/react/Function";
 import { Argument } from "./Argument";
 import { useStyle } from "../style";
 import { useText } from "../text";
@@ -237,7 +239,7 @@ const FunctionToken = forwardRef<HTMLElement, TokenComponentProps>(
                       className={style.token.function.name}
                       onClick={() => setSelectingName(true)}
                     >
-                      {meta.name} <CaretDown />
+                      {meta.name} <CaretDownIcon />
                     </button>
                     <div className={style.token.function.args}>{}</div>
                   </>
@@ -285,7 +287,7 @@ const FunctionToken = forwardRef<HTMLElement, TokenComponentProps>(
                               {expandedGroups.has(group)
                                 ? "Show less"
                                 : "Show more"}
-                              <CaretDown
+                              <CaretDownIcon
                                 size={16}
                                 style={{
                                   transform: expandedGroups.has(group)
@@ -316,7 +318,7 @@ const FunctionToken = forwardRef<HTMLElement, TokenComponentProps>(
                               })}
                             >
                               <span className={style.dropdown.icon}>
-                                <Function size={14} />
+                                <FunctionIcon size={14} />
                               </span>
                               <span className={style.dropdown.primary}>
                                 {meta.name}
@@ -327,7 +329,7 @@ const FunctionToken = forwardRef<HTMLElement, TokenComponentProps>(
                     ))
                   ) : (
                     <div className={style.dropdown.empty}>
-                      <Empty size={16} /> {text.dropdown.empty.nothingFound}
+                      <EmptyIcon size={16} /> {text.dropdown.empty.nothingFound}
                     </div>
                   ))}
               </div>

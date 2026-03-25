@@ -5,7 +5,7 @@ import { colors, upperFirst } from "../utils/misc";
 import Dropdown from "./Dropdown";
 import { IQuantityToken, TokenComponentProps } from "../types/internal";
 import { useStyle } from "../style";
-import { Scales } from "@phosphor-icons/react";
+import { ScalesIcon } from "@phosphor-icons/react/Scales";
 
 UcumLhcUtils.getInstance();
 
@@ -74,7 +74,7 @@ const QuantityToken = forwardRef<HTMLElement, TokenComponentProps>(
           renderItem={(unit) => (
             <>
               <span className={style.dropdown.icon}>
-                <Scales size={14} />
+                <ScalesIcon size={14} />
               </span>
               <span className={style.dropdown.primary}>{unit.value}</span>
               <div className={style.dropdown.secondary}>{unit.name}</div>

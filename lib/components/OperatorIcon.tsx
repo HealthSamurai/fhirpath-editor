@@ -1,18 +1,16 @@
-import {
-  Command,
-  Divide,
-  Equals,
-  GreaterThan,
-  GreaterThanOrEqual,
-  Icon,
-  LessThan,
-  LessThanOrEqual,
-  LineVertical,
-  Minus,
-  NotEquals,
-  Plus,
-  X,
-} from "@phosphor-icons/react";
+import { CommandIcon } from "@phosphor-icons/react/Command";
+import { DivideIcon } from "@phosphor-icons/react/Divide";
+import { EqualsIcon } from "@phosphor-icons/react/Equals";
+import { GreaterThanIcon } from "@phosphor-icons/react/GreaterThan";
+import { GreaterThanOrEqualIcon } from "@phosphor-icons/react/GreaterThanOrEqual";
+import { LessThanIcon } from "@phosphor-icons/react/LessThan";
+import { LessThanOrEqualIcon } from "@phosphor-icons/react/LessThanOrEqual";
+import { LineVerticalIcon } from "@phosphor-icons/react/LineVertical";
+import { MinusIcon } from "@phosphor-icons/react/Minus";
+import { NotEqualsIcon } from "@phosphor-icons/react/NotEquals";
+import { PlusIcon } from "@phosphor-icons/react/Plus";
+import type { Icon } from "@phosphor-icons/react/lib";
+import { XIcon } from "@phosphor-icons/react/X";
 import { createElement } from "react";
 
 import { OperatorName } from "../types/internal";
@@ -20,17 +18,17 @@ import clx from "classnames";
 import { useStyle } from "../style";
 
 const operatorIcons: Partial<Record<OperatorName, Icon>> = {
-  "+": Plus,
-  "-": Minus,
-  "*": X,
-  "/": Divide,
-  "=": Equals,
-  "!=": NotEquals,
-  "<": LessThan,
-  "<=": LessThanOrEqual,
-  ">": GreaterThan,
-  ">=": GreaterThanOrEqual,
-  "|": LineVertical,
+  "+": PlusIcon,
+  "-": MinusIcon,
+  "*": XIcon,
+  "/": DivideIcon,
+  "=": EqualsIcon,
+  "!=": NotEqualsIcon,
+  "<": LessThanIcon,
+  "<=": LessThanOrEqualIcon,
+  ">": GreaterThanIcon,
+  ">=": GreaterThanOrEqualIcon,
+  "|": LineVerticalIcon,
 };
 
 type OperatorIconProps = {
@@ -55,7 +53,7 @@ const OperatorIcon = ({
         !name.match(/[a-z]/) ? (
           <span className={style.token.operator.icon.letter}>{name}</span>
         ) : (
-          <Command size={size} />
+          <CommandIcon size={size} />
         )
       ) : (
         name
